@@ -2,7 +2,7 @@ const path = require(`path`)
 
 exports.createPages = async ({ graphql, actions }) => {
   const { data } = await graphql(`
-    query createApplicationEnpointsQuery {
+    query createApplicationsQuery {
       allJson {
         edges {
           node {
@@ -23,7 +23,7 @@ exports.createPages = async ({ graphql, actions }) => {
   })
 
   const { data: data1 } = await graphql(`
-    query createEnpointsRequestsQuery {
+    query createApplicationEndPointsRequestsQuery {
       allEndpoints {
         edges {
           node {
@@ -50,7 +50,7 @@ exports.createPages = async ({ graphql, actions }) => {
   })
 
   const { data: data2 } = await graphql(`
-    query createEnpointsRequestsQuery {
+    query createIndividualEndPointsRequestsQuery {
       allEndpoints {
         edges {
           node {

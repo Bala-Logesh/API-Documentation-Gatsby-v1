@@ -71,7 +71,7 @@ const EndPointDetail = ({ data: inputData }) => {
 export default EndPointDetail
 
 export const query = graphql`
-  query createEnpointsDetailsQuery(
+  query getAllEndPointsDetailsQuery(
     $slug: String!
     $endpoint_id: String!
     $method_slug: String!

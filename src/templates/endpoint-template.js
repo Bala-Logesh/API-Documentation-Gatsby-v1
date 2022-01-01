@@ -23,7 +23,7 @@ const EndPointTemplate = ({ data }) => {
 export default EndPointTemplate
 
 export const query = graphql`
-  query getApplicationEndpointswithSlugQuery($slug: String!) {
+  query getEndPointsOfApplicationQuery($slug: String!) {
     allEndpoints(filter: { slug: { eq: $slug } }) {
       edges {
         node {

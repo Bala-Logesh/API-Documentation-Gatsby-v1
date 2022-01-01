@@ -23,7 +23,7 @@ const endpoints = ({ data }) => {
 export default endpoints
 
 export const query = graphql`
-  query getAllEndpointsQuery {
+  query getAllEndPointsQuery {
     allEndpoints {
       edges {
         node {
