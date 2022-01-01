@@ -177,3 +177,12 @@
     width: 70%;
   }
 }
+
+/* Display */
+.hide{
+  display: none;
+}
+
+.show{
+  display: flex;
+}

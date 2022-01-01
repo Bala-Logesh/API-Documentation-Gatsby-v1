@@ -4,7 +4,11 @@ module.exports = {
       resolve: `gatsby-transformer-json`,
       options: {
         typeName: ({ node, object, isArray }) =>
-          object.methods ? `Endpoints` : `Json`,
+          object.application_id
+            ? `Endpoints`
+            : object.authorization
+            ? `Requests`
+            : `Json`,
       },
     },
     {

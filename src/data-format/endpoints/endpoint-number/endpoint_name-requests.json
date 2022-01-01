@@ -1,0 +1,15 @@
+[
+  {
+    "app": "String : Same as the corresponding application slug",
+    "endpoint_id": "String : Same as the endpoint",
+    "slug": "String",
+    "description": "String",
+    "url": "String : URL format",
+    "method": "GET / POST / PUT / PATCh / DELETE",
+    "authorization": "String",
+    "body": "String : Converted into JSON along with the escape characters",
+    "response": [
+      "String : Converted into JSON along with the escape characters"
+    ]
+  }
+]

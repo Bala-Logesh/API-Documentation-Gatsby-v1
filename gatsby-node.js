@@ -28,13 +28,7 @@ exports.createPages = async ({ graphql, actions }) => {
         edges {
           node {
             endpoint_id
-            base_url
             slug
-            methods {
-              description
-              method
-              slug
-            }
           }
         }
       }
@@ -51,38 +45,33 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const { data: data2 } = await graphql(`
     query createIndividualEndPointsRequestsQuery {
-      allEndpoints {
+      allRequests {
         edges {
           node {
-            endpoint_id
-            base_url
             slug
-            methods {
-              slug
-            }
+            endpoint_id
+            app
           }
         }
       }
     }
   `)
 
-  data2.allEndpoints.edges.forEach(node => {
-    node.node.methods.forEach(method => {
-      actions.createPage({
-        path:
-          "/endpoints/" +
-          node.node.slug +
-          "/" +
-          node.node.endpoint_id +
-          "/" +
-          method.slug,
-        component: path.resolve("./src/templates/endpoint-details-template.js"),
-        context: {
-          slug: node.node.slug,
-          endpoint_id: node.node.endpoint_id,
-          method_slug: method.slug,
-        },
-      })
+  data2.allRequests.edges.forEach(node => {
+    actions.createPage({
+      path:
+        "/endpoints/" +
+        node.node.app +
+        "/" +
+        node.node.endpoint_id +
+        "/" +
+        node.node.slug,
+      component: path.resolve("./src/templates/endpoint-details-template.js"),
+      context: {
+        app: node.node.app,
+        endpoint_id: node.node.endpoint_id,
+        slug: node.node.slug,
+      },
     })
   })
 }

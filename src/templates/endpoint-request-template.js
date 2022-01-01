@@ -16,8 +16,10 @@ const getClass = method => {
   }
 }
 
-const EndPointRequestTemplate = ({ data }) => {
-  const request = data.allEndpoints.edges[0].node
+const EndPointRequestTemplate = ({ data: query }) => {
+  console.log(query)
+  const request = query.allEndpoints.edges[0].node
+  const data = query.allRequests.edges
 
   return (
     <Layout>
@@ -25,16 +27,16 @@ const EndPointRequestTemplate = ({ data }) => {
         Back
       </Link>
       <div className="container flex">
-        {request.methods.map(req => (
+        {data.map(node => (
           <Link
-            key={req.slug}
-            to={`${req.slug}`}
-            className={`card link-no-hover ${getClass(req.method)}`}
+            key={node.node.slug}
+            to={`${node.node.slug}`}
+            className={`card link-no-hover ${getClass(node.node.method)}`}
           >
             <p className="card-title">
-              {req.method} : <span className="pink">{request.base_url}</span>
+              {node.node.method} : <span className="pink">{node.node.url}</span>
             </p>
-            <p className="white-title">{req.description}</p>
+            <p className="white-title">{node.node.description}</p>
           </Link>
         ))}
       </div>
@@ -46,19 +48,24 @@ export default EndPointRequestTemplate
 
 export const query = graphql`
   query getEndPointRequestQuery($slug: String!, $endpoint_id: String!) {
-    allEndpoints(
-      filter: { slug: { eq: $slug }, endpoint_id: { eq: $endpoint_id } }
+    allEndpoints(filter: { endpoint_id: { eq: $endpoint_id } }) {
+      edges {
+        node {
+          slug
+        }
+      }
+    }
+    allRequests(
+      filter: { app: { eq: $slug }, endpoint_id: { eq: $endpoint_id } }
     ) {
       edges {
         node {
+          app
           endpoint_id
+          description
+          method
           slug
-          base_url
-          methods {
-            description
-            method
-            slug
-          }
+          url
         }
       }
     }

@@ -1,7 +1,7 @@
 {
   "application_id": "Number : Same as the corresponding application",
   "application": "String : Same as the corresponding application",
-  "slug": "String : Same as the corresponding applicatione",
+  "slug": "String : Same as the corresponding application",
   "base_url": "String : URL format",
   "endpoint_id": "String : Same as the filename",
   "description": "String",
@@ -18,5 +18,5 @@
       ]
     }
   ],
-  "count": "Number: Length of methods array"
+  "count": "Number: Length of array in the request.json"
 }

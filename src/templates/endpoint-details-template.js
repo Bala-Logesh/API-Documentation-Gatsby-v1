@@ -4,8 +4,7 @@ import Layout from "../components/Layout"
 import { useState } from "react"
 
 const EndPointDetail = ({ data: inputData }) => {
-  let node = inputData.allEndpoints.edges[0].node
-  let data = node.methods[0]
+  let data = inputData.allRequests.edges[0].node
 
   const [isCopiedReq, setIsCopiedReq] = useState(false)
   const [isCopiedRes, setIsCopiedRes] = useState(false)
@@ -22,7 +21,7 @@ const EndPointDetail = ({ data: inputData }) => {
     <Layout>
       <Link
         className="btn btn-2"
-        to={`/endpoints/${node.slug}/${node.endpoint_id}`}
+        to={`/endpoints/${data.app}/${data.endpoint_id}`}
       >
         Back
       </Link>
@@ -36,7 +35,11 @@ const EndPointDetail = ({ data: inputData }) => {
           <div className="code_block">{data.method}</div>
           <p className="white-title">Authorization:</p>
           <div className="code_block">{data.authorization}</div>
-          <div className="flex-jcsb mb10px">
+          <div
+            className={`flex-jcsb mb10px ${
+              data.body === "" ? "hide" : "show"
+            } `}
+          >
             <p className="white-title">Request:</p>
             <button
               className="btn btn-2 pointer"
@@ -46,10 +49,16 @@ const EndPointDetail = ({ data: inputData }) => {
             </button>
           </div>
           <div
-            className="newlines code_block"
+            className={`newlines code_block ${
+              data.body === "" ? "hide" : "show"
+            } `}
             dangerouslySetInnerHTML={{ __html: data.body }}
           ></div>
-          <div className="flex-jcsb mb10px">
+          <div
+            className={`flex-jcsb mb10px ${
+              data.response === "" ? "hide" : "show"
+            } `}
+          >
             <p className="white-title">Possible Responses:</p>
             <button
               className="btn btn-2 pointer"
@@ -59,7 +68,9 @@ const EndPointDetail = ({ data: inputData }) => {
             </button>
           </div>
           <div
-            className="newlines code_block"
+            className={`newlines code_block ${
+              data.response === "" ? "hide" : "show"
+            } `}
             dangerouslySetInnerHTML={{ __html: data.response }}
           ></div>
         </div>
@@ -72,30 +83,28 @@ export default EndPointDetail
 
 export const query = graphql`
   query getAllEndPointsDetailsQuery(
-    $slug: String!
+    $app: String!
     $endpoint_id: String!
-    $method_slug: String!
+    $slug: String!
   ) {
-    allEndpoints(
+    allRequests(
       filter: {
-        slug: { eq: $slug }
+        app: { eq: $app }
         endpoint_id: { eq: $endpoint_id }
-        methods: { elemMatch: { slug: { eq: $method_slug } } }
+        slug: { eq: $slug }
       }
     ) {
       edges {
         node {
           endpoint_id
+          app
+          description
+          method
           slug
-          methods {
-            description
-            method
-            slug
-            response
-            url
-            body
-            authorization
-          }
+          response
+          url
+          body
+          authorization
         }
       }
     }
