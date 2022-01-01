@@ -1,0 +1,78 @@
+[
+  {
+    "app": "todos-website",
+    "endpoint_id": "todos",
+    "slug": "get-todos",
+    "description": "Returns 100 todos",
+    "url": "https://jsonplaceholder.typicode.com/todos",
+    "method": "GET",
+    "authorization": "None",
+    "body": "",
+    "response": [
+      "[\n  { id: 1, title: '...' /* ... */ },\n  { id: 2, title: '...' /* ... */ },\n  { id: 3, title: '...' /* ... */ },\n  /* ... */\n  { id: 100, title: '...' /* ... */ },\n];\n"
+    ]
+  },
+  {
+    "app": "todos-website",
+    "endpoint_id": "todos",
+    "slug": "get-todo",
+    "description": "Returns 1 todo",
+    "url": "https://jsonplaceholder.typicode.com/todos/:id",
+    "method": "GET",
+    "authorization": "None",
+    "body": "",
+    "response": [
+      "{\n  id: 1,\n  title: '...',\n  body: '...',\n  userId: 1\n}\n"
+    ]
+  },
+  {
+    "app": "todos-website",
+    "endpoint_id": "todos",
+    "slug": "create-todo",
+    "description": "Create a new todo",
+    "url": "https://jsonplaceholder.typicode.com/todos",
+    "method": "todo",
+    "authorization": "None",
+    "body": "{\n    title: 'foo',\n    body: 'bar',\n    userId: 1,\n}",
+    "response": [
+      "{\n  id: 101,\n  title: 'foo',\n  body: 'bar',\n  userId: 1\n}\n"
+    ]
+  },
+  {
+    "app": "todos-website",
+    "endpoint_id": "todos",
+    "slug": "update-todo",
+    "description": "Update a todo using put",
+    "url": "https://jsonplaceholder.typicode.com/todos/id",
+    "method": "PUT",
+    "authorization": "None",
+    "body": "{\n    id: 1,\n    title: 'foo',\n    body: 'bar',\n    userId: 1,\n}",
+    "response": [
+      "{\n  id: 1,\n  title: 'foo',\n  body: 'bar',\n  userId: 1\n}\n"
+    ]
+  },
+  {
+    "app": "todos-website",
+    "endpoint_id": "todos",
+    "slug": "patch-todo",
+    "description": "Update a todo using patch",
+    "url": "https://jsonplaceholder.typicode.com/todos/id",
+    "method": "PATCH",
+    "authorization": "None",
+    "body": "{\n title: 'foo',\n}",
+    "response": [
+      "{\n  id: 1,\n  title: 'foo',\n  body: '...',\n  userId: 1\n}\n"
+    ]
+  },
+  {
+    "app": "todos-website",
+    "endpoint_id": "todos",
+    "slug": "delete-todo",
+    "description": "Delete a todo",
+    "url": "https://jsonplaceholder.typicode.com/todos/id",
+    "method": "DELETE",
+    "authorization": "None",
+    "body": "",
+    "response": [""]
+  }
+]

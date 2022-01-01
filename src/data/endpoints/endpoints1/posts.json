@@ -1,0 +1,9 @@
+{
+  "application_id": 1,
+  "application": "Posts Website",
+  "slug": "posts-website",
+  "base_url": "https://jsonplaceholder.typicode.com/posts",
+  "endpoint_id": "posts",
+  "description": "List of 100 posts in the JSON Placeholder Typicode API",
+  "count": 6
+}

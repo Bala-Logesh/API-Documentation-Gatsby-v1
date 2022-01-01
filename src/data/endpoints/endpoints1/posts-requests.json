@@ -1,0 +1,78 @@
+[
+  {
+    "app": "posts-website",
+    "endpoint_id": "posts",
+    "slug": "get-posts",
+    "description": "Returns 100 posts",
+    "url": "https://jsonplaceholder.typicode.com/posts",
+    "method": "GET",
+    "authorization": "None",
+    "body": "",
+    "response": [
+      "[\n  { id: 1, title: '...' /* ... */ },\n  { id: 2, title: '...' /* ... */ },\n  { id: 3, title: '...' /* ... */ },\n  /* ... */\n  { id: 100, title: '...' /* ... */ },\n];\n"
+    ]
+  },
+  {
+    "app": "posts-website",
+    "endpoint_id": "posts",
+    "slug": "get-post",
+    "description": "Returns 1 post",
+    "url": "https://jsonplaceholder.typicode.com/posts/:id",
+    "method": "GET",
+    "authorization": "None",
+    "body": "",
+    "response": [
+      "{\n  id: 1,\n  title: '...',\n  body: '...',\n  userId: 1\n}\n"
+    ]
+  },
+  {
+    "app": "posts-website",
+    "endpoint_id": "posts",
+    "slug": "create-post",
+    "description": "Create a new post",
+    "url": "https://jsonplaceholder.typicode.com/posts",
+    "method": "POST",
+    "authorization": "None",
+    "body": "{\n    title: 'foo',\n    body: 'bar',\n    userId: 1,\n}",
+    "response": [
+      "{\n  id: 101,\n  title: 'foo',\n  body: 'bar',\n  userId: 1\n}\n"
+    ]
+  },
+  {
+    "app": "posts-website",
+    "endpoint_id": "posts",
+    "slug": "update-post",
+    "description": "Update a post using put",
+    "url": "https://jsonplaceholder.typicode.com/posts/id",
+    "method": "PUT",
+    "authorization": "None",
+    "body": "{\n    id: 1,\n    title: 'foo',\n    body: 'bar',\n    userId: 1,\n}",
+    "response": [
+      "{\n  id: 1,\n  title: 'foo',\n  body: 'bar',\n  userId: 1\n}\n"
+    ]
+  },
+  {
+    "app": "posts-website",
+    "endpoint_id": "posts",
+    "slug": "patch-post",
+    "description": "Update a post using patch",
+    "url": "https://jsonplaceholder.typicode.com/posts/id",
+    "method": "PATCH",
+    "authorization": "None",
+    "body": "{\n title: 'foo',\n}",
+    "response": [
+      "{\n  id: 1,\n  title: 'foo',\n  body: '...',\n  userId: 1\n}\n"
+    ]
+  },
+  {
+    "app": "posts-website",
+    "endpoint_id": "posts",
+    "slug": "delete-post",
+    "description": "Delete a post",
+    "url": "https://jsonplaceholder.typicode.com/posts/id",
+    "method": "DELETE",
+    "authorization": "None",
+    "body": "",
+    "response": [""]
+  }
+]

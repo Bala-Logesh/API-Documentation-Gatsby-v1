@@ -1,0 +1,12 @@
+{
+  "id": 2,
+  "application": "Todos Website",
+  "author": "JSON Placeholder",
+  "slug": "todos-website",
+  "endpoints": [
+    {
+      "endpoint_id": "todos",
+      "url": "https://jsonplaceholder.typicode.com/todos"
+    }
+  ]
+}

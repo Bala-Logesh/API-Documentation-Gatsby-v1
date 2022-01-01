@@ -1,0 +1,9 @@
+{
+  "application_id": 1,
+  "application": "Todos Website",
+  "slug": "todos-website",
+  "base_url": "https://jsonplaceholder.typicode.com/todos",
+  "endpoint_id": "todos",
+  "description": "List of 100 todos in the JSON Placeholder Typicode API",
+  "count": 6
+}
