@@ -1,0 +1,12 @@
+{
+  "id": "Number",
+  "application": "String",
+  "author": "String",
+  "slug": "String : Application name, hyphen separated",
+  "endpoints": [
+    {
+      "endpoint_id": "String",
+      "url": "String : URL format"
+    }
+  ]
+}

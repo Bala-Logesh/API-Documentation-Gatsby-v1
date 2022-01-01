@@ -1,0 +1,22 @@
+{
+  "application_id": "Number : Same as the corresponding application",
+  "application": "String : Same as the corresponding application",
+  "slug": "String : Same as the corresponding applicatione",
+  "base_url": "String : URL format",
+  "endpoint_id": "String : Same as the filename",
+  "description": "String",
+  "methods": [
+    {
+      "slug": "String: (Method - endpoint_id)",
+      "description": "String",
+      "url": "String : URL format",
+      "method": "GET / POST / PUT / PATCh / DELETE",
+      "authorization": "String",
+      "body": "String : Converted into JSON along with the escape characters",
+      "response": [
+        "String : Converted into JSON along with the escape characters"
+      ]
+    }
+  ],
+  "count": "Number: Length of methods array"
+}
