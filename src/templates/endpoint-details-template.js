@@ -56,7 +56,7 @@ const EndPointDetail = ({ data: inputData }) => {
           ></div>
           <div
             className={`flex-jcsb mb10px ${
-              data.response === "" ? "hide" : "show"
+              data.response[0] === "" ? "hide" : "show"
             } `}
           >
             <p className="white-title">Possible Responses:</p>
@@ -69,7 +69,7 @@ const EndPointDetail = ({ data: inputData }) => {
           </div>
           <div
             className={`newlines code_block ${
-              data.response === "" ? "hide" : "show"
+              data.response[0] === "" ? "hide" : "show"
             } `}
             dangerouslySetInnerHTML={{ __html: data.response }}
           ></div>
